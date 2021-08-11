@@ -1,14 +1,14 @@
-- Infrastructure
-  - [CentOS使用](/zh-cn/centos.md)
-  - [Docker使用](/zh-cn/docker.md)
-  - [Nginx使用](/zh-cn/nginx.md)
+- 基础设施与初始化
+  - [CentOS](/zh-cn/centos.md)
+  - [Docker](/zh-cn/docker.md)
+  - [Nginx](/zh-cn/nginx.md)
 
-- Server Management
+- 服务器管理
   - [Ansible使用](/zh-cn/ansible.md)
 
-- Application Management
-  - [交付于docker-compose](/zh-cn/docker-compose.md)
-  - [交付于kubernetes](/zh-cn/kubernetes.md)
+- 项目应用管理
+  - [基于docker-compose](/zh-cn/docker-compose.md)
+  - [基于于kubernetes](/zh-cn/kubernetes.md)
   
 
   
