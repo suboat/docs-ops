@@ -1,4 +1,4 @@
-- 基础设施与初始化
+- 基础设施搭建
   - [CentOS](/zh-cn/centos.md)
   - [Docker](/zh-cn/docker.md)
   - [Nginx](/zh-cn/nginx.md)

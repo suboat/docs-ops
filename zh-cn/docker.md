@@ -1,4 +1,3 @@
-# docker安装与初始化
 
 ## Docker是什么
 
@@ -14,9 +13,21 @@ Docker 将应用程序与该程序的依赖，打包在一个文件里面。运�
 
 ## docker安装
 
-- 基于[Ansible](ansible.md)的部署方式:
+- 基于[Ansible](ansible.md)的部署方式安装 *docker* 与 *docker-compose* :
 
 [docker.yaml](//gist.githubusercontent.com/tudyzhb/64f8b650684c3816962452e2557dbb6e/raw/docker.yaml ':include :type=code')
+
+## docker-compose安装
+
+> 上一步骤的中docker安装，已经包含docker-compose的安装。
+
+*docker-compose* 是用于定义和运行多容器 docker 应用程序的工具。
+通过 Compose，您可以使用 YML 文件来配置应用程序需要的所有服务。
+然后，使用一个命令，就可以从 YML 文件配置中创建并启动所有服务。
+
+*docker-compose* 可以通过 *pip* 安装，但推荐使用官方文档提供的二进制安装。
+
+- 查看 [官方文档](https://docs.docker.com/compose/install/#install-compose-on-linux-systems) 。
 
 ## 容器创建
 
