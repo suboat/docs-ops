@@ -12,7 +12,7 @@ Docker 将应用程序与该程序的依赖，打包在一个文件里面。运�
 2. docker运行产生的文件应该保存在数据盘而非系统盘，即系统初始化好的目录[/data/docker/](centos.md)。
 3. 每个docker容器(不包括k8s的使用场景)的运行都应该在 */data/docker/sh/* 目录有对应的启动脚本，且脚本具备幂等性。[查看例子](#Examples)
 
-## docker安装与初始化
+## docker安装
 
 - 基于[Ansible](ansible.md)的部署方式:
 
