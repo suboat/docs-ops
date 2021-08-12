@@ -9,7 +9,7 @@
 
 - 项目应用管理
   - [基于docker-compose](/zh-cn/docker-compose.md)
-  - [基于于kubernetes](/zh-cn/kubernetes.md)
+  - [基于kubernetes](/zh-cn/kubernetes.md)
 
 
   

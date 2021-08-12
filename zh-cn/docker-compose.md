@@ -190,7 +190,15 @@ project_redis_1        docker-entrypoint.sh redis ...   Up      0.0.0.0:51579->6
 project_user_1         /run.sh                          Up      0.0.0.0:51570->7070/tcp,:::51570->7070/tcp, 0.0.0.0:51580->8080/tcp,:::51580->8080/tcp, 0.0.0.0:51590->8090/tcp,:::51590->8090/tcp
 ```
 
-2.3 查看日志。
+2.3 重启某个模块。
+
+- 重启user模块:
+
+```bash
+docker restart project_user_1
+```
+
+2.4 查看日志。
 
 - 查看user模块的最新100行日志并监听最新日志:
 
