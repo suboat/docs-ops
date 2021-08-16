@@ -1,0 +1,95 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: debug-app-demo
+  namespace: example
+spec:
+  type: NodePort
+  ports:
+  - name: "web-addr"
+    port: 8280
+  - name: "rpc-addr"
+    port: 8290
+  selector:
+    com.suboat.service: app-demo
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: app-demo
+  namespace: example
+spec:
+  ports:
+  - name: "web-addr"
+    port: 8280
+  - name: "rpc-addr"
+    port: 8290
+  selector:
+    com.suboat.service: app-demo
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-demo
+  namespace: example
+spec:
+  selector:
+    matchLabels:
+      com.suboat.service: app-demo
+  replicas: 1
+  revisionHistoryLimit: 2
+  strategy:
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        com.suboat.service: app-demo
+    spec:
+      containers:
+      - name: app-demo
+        image: tudyzhb/springboot:0.0.2
+        imagePullPolicy: IfNotPresent
+        workingDir: /app/
+        #command: ["/bin/bash","-c","while true; do sleep 10000; done"]
+        resources:
+          limits:
+            memory: "500Mi"
+          requests:
+            memory: "300Mi"
+        # get node ip in pod
+        env:
+        - name: NODE_IP
+          valueFrom:
+            fieldRef:
+              fieldPath: status.hostIP
+        volumeMounts:
+        - name: example-bin
+          readOnly: true
+          mountPath: /home/java-app/docker-entrypoint.sh
+          subPath: java/run.sh
+        - name: example-bin
+          readOnly: true
+          mountPath: /home/java-app/lib/app.jar
+          subPath: java/demo.jar
+        ports:
+        - containerPort: 8280
+          name: "web-addr"
+        - containerPort: 8290
+          name: "rpc-addr"
+        - containerPort: 7070
+          name: "debug-addr"
+        # 可用检测
+        readinessProbe:
+          httpGet:
+             path: /actuator/health
+             port: 8280
+          initialDelaySeconds: 10
+          periodSeconds: 5
+          successThreshold: 1
+          timeoutSeconds: 3
+      volumes:
+      - name: example-bin
+        persistentVolumeClaim:
+          claimName: example-bin
+---

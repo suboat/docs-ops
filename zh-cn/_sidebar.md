@@ -2,6 +2,7 @@
   - [CentOS](/zh-cn/centos.md)
   - [Docker](/zh-cn/docker.md)
   - [Nginx](/zh-cn/nginx.md)
+  - [Java](/zh-cn/java/java.md)
   - [常用软件](/zh-cn/software.md)
 
 - 服务器管理
